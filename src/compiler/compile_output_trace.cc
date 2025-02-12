@@ -5,14 +5,14 @@
 #include <utility> // std::move
 #include <variant> // std::visit
 
-static auto step_name(const sourcemeta::blaze::Instruction &instruction)
+namespace sourcemeta::blaze {
+
+auto step_name(const sourcemeta::blaze::Instruction &instruction)
     -> std::string_view {
   return sourcemeta::blaze::InstructionNames
       [static_cast<std::underlying_type_t<sourcemeta::blaze::InstructionIndex>>(
           instruction.type)];
 }
-
-namespace sourcemeta::blaze {
 
 TraceOutput::TraceOutput(const sourcemeta::core::WeakPointer &base)
     : base_{base} {}

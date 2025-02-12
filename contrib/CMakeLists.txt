@@ -23,6 +23,15 @@ if(BLAZE_COMPILER AND BLAZE_EVALUATOR)
   target_link_libraries(sourcemeta_blaze_contrib_trace
     PRIVATE sourcemeta::blaze::evaluator)
 
+  sourcemeta_executable(NAMESPACE sourcemeta PROJECT blaze NAME contrib_describe
+    FOLDER "Blaze/Contrib" SOURCES describe.cc)
+  target_link_libraries(sourcemeta_blaze_contrib_describe
+    PRIVATE sourcemeta::core::json)
+  target_link_libraries(sourcemeta_blaze_contrib_describe
+    PRIVATE sourcemeta::core::jsonschema)
+  target_link_libraries(sourcemeta_blaze_contrib_describe
+    PRIVATE sourcemeta::blaze::compiler)
+
   if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     sourcemeta_executable(NAMESPACE sourcemeta PROJECT blaze NAME contrib_perf
       FOLDER "Blaze/Contrib" SOURCES perf.cc)

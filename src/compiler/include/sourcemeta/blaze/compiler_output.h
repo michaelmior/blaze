@@ -17,6 +17,9 @@
 
 namespace sourcemeta::blaze {
 
+[[maybe_unused]] std::string_view
+step_name(const sourcemeta::blaze::Instruction &instruction);
+
 /// @ingroup compiler
 ///
 /// A simple evaluation callback that reports a stack trace in the case of
